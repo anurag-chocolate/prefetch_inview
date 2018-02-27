@@ -39,6 +39,7 @@ public class InviewVideoAdapter extends BaseAdapter {
     private boolean mAdLoaded;
     private final String mApiKey;
 
+
     private LVDOBannerAd mAdView;
     private final LVDOAdSize mAdSize;
     private final List<Channel> mNewsList;
@@ -188,6 +189,8 @@ public class InviewVideoAdapter extends BaseAdapter {
                     mViews.put(i, banner);
                     mAdLoaded = true;
                     inViewAd.addView(banner);
+                    LVDOAdRequest adRequest1 = new LVDOAdRequest(mActivity);
+                    LVDOBannerAd.prefetch(mActivity, LVDOAdSize.INVIEW_LEADERBOARD, "QZDID8", adRequest1);
 
                     if (mSlideDown != null) {
                         inViewAd.startAnimation(mSlideDown);

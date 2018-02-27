@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent toy=new Intent(MainActivity.this,InviewListActivity.class);
                 startActivity(toy);
-                prefetch();
+                //prefetch();
             }
         });
     }

@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void prefetch(){
 
-        LVDOBannerAd.prefetch(this, LVDOAdSize.INVIEW_LEADERBOARD, "QZDID8", adRequest);
+        LVDOBannerAd.prefetch(this, LVDOAdSize.INVIEW_LEADERBOARD, "llpHX8", adRequest);
 
 
     }

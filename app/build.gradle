@@ -1,22 +1,26 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    compileSdkVersion 26
+    //buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "com.vdopia.sdk21"
-        minSdkVersion 17
-        targetSdkVersion 24
+        minSdkVersion 19
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        multiDexEnabled true;
+        multiDexEnabled true
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
     }
 }
 
@@ -33,87 +37,64 @@ repositories {
     maven { url "https://adcolony.bintray.com/AdColony" }
     maven { url "https://dl.bintray.com/vdopiacorp/sdk" }
     maven { url "https://maven.google.com"}
-    //google()
-    // If you're using a version of Gradle lower than 4.1, you must instead use:
-    // maven {
-    //     url 'https://maven.google.com'
-    // }
+
+    maven { url "https://dl.bintray.com/ironsource-mobile/android-sdk" }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    //compile fileTree(include: ['*.jar'], dir: 'libs')
-    //compile(name:'VdopiaSDK_FacebookUpdated', ext:'aar')
-
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:support-annotations:25.1.0'
-    compile 'com.android.support:appcompat-v7:25.1.0'
-    compile 'com.android.support:support-v4:25.1.0'
-    compile 'com.android.support:design:25.1.0'
-    compile 'com.android.support:recyclerview-v7:25.1.0'
-    compile 'com.android.support:cardview-v7:25.1.0'
+    compile 'com.android.support:support-annotations:26.+'
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support:support-v4:26.+'
+    compile 'com.android.support:design:26.+'
+    compile 'com.android.support:recyclerview-v7:26.+'
+    compile 'com.android.support:cardview-v7:26.+'
     testCompile 'junit:junit:4.12'
 
-    //compile 'com.facebook.android:audience-network-sdk:4.+'
-    //compile 'com.inmobi.monetization:inmobi-ads:6.1.0'
-    /*compile ('com.mopub:mopub-sdk:4.6.1@aar') {
-        transitive = true
-    }*/
-    /*Compile ('tv.teads.sdk:androidsdk:2.1.4:fullRelease@aar') {
-        transitive = true;
-    }*/
-    //compile 'com.devbrackets.android:exomedia:3.1.1'
-    //compile 'com.flurry.android:ads:7.0.0'
-    //compile 'com.google.android.gms:play-services-ads:9.2.0'
-    //compile 'com.android.support:multidex:1.0.1'
-    //compile 'com.vdopia.ads.lw:applovin-adapter:1.0.0'
-    //compile 'com.vdopia.ads.lw:facebook-adapter:1.0.0'
-    //compile ('com.vdopia.ads.lw:google-adapter:1.0.0') {
-        //uncomment the exclude statement if you wish to use your own version
-        //of play-services-ads library.  Otherwise, google-adapter will use 11.6.0
-        //exclude group: 'com.google.android.gms', module: 'play-services-ads'
-    //}
-    //compile 'com.vdopia.ads.lw:inmobi-adapter:1.0.0'
-   // compile 'com.vdopia.ads.lw:mopub-adapter:1.0.1'
-    //compile 'com.vdopia.ads.lw:yahoo-adapter:1.0.0'
 
 
-    compile("com.vdopia.ads.lw:coresdk:2.5.2.12-alpha")
-    compile("com.vdopia.ads.lw:adcolony-adapter:1.0.5")
-    compile("com.vdopia.ads.lw:applovin-adapter:1.0.5")
-    compile("com.vdopia.ads.lw:baidu-adapter:1.0.5")
-    compile("com.vdopia.ads.lw:chartboost-adapter:1.0.6")
-    compile("com.vdopia.ads.lw:facebook-adapter:1.0.5")
-    compile("com.vdopia.ads.lw:google-adapter:1.0.5")
-    compile("com.vdopia.ads.lw:inmobi-adapter:1.0.5")
-    //compile("com.vdopia.ads.lw:ironsrc-adapter:1.0.5")
-    compile("com.vdopia.ads.lw:loopme-adapter:1.0.5")
-    compile("com.vdopia.ads.lw:mopub-adapter:1.0.7") {
+    implementation("com.vdopia.ads.lw:coresdk-beta:2.5.4.3")
+    //implementation("com.vdopia.ads.lw:adcolony-adapter-beta:1.1.1")
+    implementation("com.vdopia.ads.lw:applovin-adapter-beta:1.1.0")
+    implementation("com.vdopia.ads.lw:baidu-adapter:1.0.5")
+    implementation("com.vdopia.ads.lw:chartboost-adapter:1.0.7")
+    implementation("com.vdopia.ads.lw:facebook-adapter:1.0.5")
+    implementation("com.vdopia.ads.lw:google-adapter:1.0.6")
+    implementation("com.vdopia.ads.lw:inmobi-adapter-beta:1.0.8")
+    implementation("com.vdopia.ads.lw:ironsrc-adapter:1.0.8")
+    //implementation("com.vdopia.ads.lw:loopme-adapter:1.0.5")
+    implementation("com.vdopia.ads.lw:mopub-adapter:1.0.7") {
 
         //If you use your own version of exoplayer, uncomment below
         //exclude group: 'com.google.android.exoplayer'
 
     }
 
-    compile("com.vdopia.ads.lw:tapjoy-adapter:1.0.5")
-    compile("com.vdopia.ads.lw:unity-adapter:1.0.5")
-    compile("com.vdopia.ads.lw:vungle-adapter:1.0.5")
-    compile("com.vdopia.ads.lw:yahoo-adapter:1.0.5")
+    implementation("com.vdopia.ads.lw:ogury-adapter-beta:1.0.2")
+    implementation("com.vdopia.ads.lw:youappi-adapter:1.0.1")
 
+    implementation("com.vdopia.ads.lw:tapjoy-adapter:1.0.5")
+    implementation("com.vdopia.ads.lw:unity-adapter-beta:1.1.0")
+    implementation("com.vdopia.ads.lw:vungle-adapter:1.0.5")
+    implementation("com.vdopia.ads.lw:yahoo-adapter-beta:1.0.8")
+    implementation "com.android.support:multidex:1.0.3"
+
+    implementation 'com.devbrackets.android:exomedia:4.0.3'
+    implementation 'com.adcolony:sdk:3.3.3'
+    implementation 'com.inmobi.monetization:inmobi-ads:7.1.0'
+    implementation 'com.applovin:applovin-sdk:8.0.0'
+    implementation 'com.flurry.android:ads:10.0.0'
 /*
  * Note: If you use our Google adapter, then we require play-services-ads version 11.0.0 or higher
  * since our Google adapter contains the latest and greatest Google ad units.
  */
-    compile "com.google.android.gms:play-services-ads:11.6.2"
-    compile 'com.squareup.picasso:picasso:2.5.2'
-    compile('com.devbrackets.android:exomedia:4.0.3') {
+    implementation "com.google.android.gms:play-services-ads:11.6.2"
+    implementation 'com.google.android.gms:play-services-gcm:11.6.2'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 
-        //If you use your own version of exoplayer, uncomment below
-        //exclude group: 'com.google.android.exoplayer'
-
-    }
     configurations.all {
         resolutionStrategy.eachDependency { DependencyResolveDetails details ->
             def requested = details.requested

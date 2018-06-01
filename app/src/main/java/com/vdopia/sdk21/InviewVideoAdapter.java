@@ -152,8 +152,8 @@ public class InviewVideoAdapter extends BaseAdapter {
     private void loadInviewAd(final LinearLayout inViewAd, final int i) {
         LVDOAdRequest adRequest = new LVDOAdRequest(mActivity);
 
-        ArrayList<LVDOConstants.PARTNERS> mPartnerNames = new ArrayList<>();
-        LVDOConstants.PARTNERS partner = LVDOConstants.PARTNERS.ALL;
+        ArrayList<LVDOConstants.PARTNER> mPartnerNames = new ArrayList<>();
+        LVDOConstants.PARTNER partner = LVDOConstants.PARTNER.ALL;
         mPartnerNames.add(partner);
         adRequest.setPartnerNames(mPartnerNames);
 
@@ -190,7 +190,7 @@ public class InviewVideoAdapter extends BaseAdapter {
                     mAdLoaded = true;
                     inViewAd.addView(banner);
                     LVDOAdRequest adRequest1 = new LVDOAdRequest(mActivity);
-                    LVDOBannerAd.prefetch(mActivity, LVDOAdSize.INVIEW_LEADERBOARD, "QZDID8", adRequest1);
+                    LVDOBannerAd.prefetch(mActivity, LVDOAdSize.INVIEW_LEADERBOARD, "llpHX8", adRequest1);
 
                     if (mSlideDown != null) {
                         inViewAd.startAnimation(mSlideDown);
